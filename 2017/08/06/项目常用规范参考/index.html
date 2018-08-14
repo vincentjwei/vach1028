@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="项目介绍相关链接 接口文档 https://github.com/alibaba/druid/ http://projects.spring.io/spring-boot/ https://github.com/mybatis/mybatis-3 http://www.redis.net.cn/tutorial/3501.html  组织结构1234567891011121314151617181">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目常用规范参考">
+<meta property="og:url" content="http://yoursite.com/child/2017/08/06/项目常用规范参考/index.html">
+<meta property="og:site_name" content="VincentWei Blog">
+<meta property="og:description" content="项目介绍相关链接 接口文档 https://github.com/alibaba/druid/ http://projects.spring.io/spring-boot/ https://github.com/mybatis/mybatis-3 http://www.redis.net.cn/tutorial/3501.html  组织结构1234567891011121314151617181">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.liaoxuefeng.com/files/attachments/001384909239390d355eb07d9d64305b6322aaf4edac1e3000/0">
+<meta property="og:updated_time" content="2017-08-06T09:23:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目常用规范参考">
+<meta name="twitter:description" content="项目介绍相关链接 接口文档 https://github.com/alibaba/druid/ http://projects.spring.io/spring-boot/ https://github.com/mybatis/mybatis-3 http://www.redis.net.cn/tutorial/3501.html  组织结构1234567891011121314151617181">
+<meta name="twitter:image" content="http://www.liaoxuefeng.com/files/attachments/001384909239390d355eb07d9d64305b6322aaf4edac1e3000/0">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/child/2017/08/06/项目常用规范参考/"/>
+
+
+
+
+
+  <title>项目常用规范参考 | VincentWei Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">VincentWei Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/child/2017/08/06/项目常用规范参考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vincent Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/26055506?s=400&u=1f62420420bdf14c7fa784348bc931bc06a0244d&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VincentWei Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">项目常用规范参考</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T17:22:49+08:00">
+                2017-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><h5 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h5><ul>
+<li><a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">接口文档</a></li>
+<li><a href="https://github.com/alibaba/druid/" title="druid" target="_blank" rel="noopener">https://github.com/alibaba/druid/</a></li>
+<li><a href="http://projects.spring.io/spring-boot/" title="spring-boot" target="_blank" rel="noopener">http://projects.spring.io/spring-boot/</a></li>
+<li><a href="https://github.com/mybatis/mybatis-3" title="mybatis" target="_blank" rel="noopener">https://github.com/mybatis/mybatis-3</a></li>
+<li><a href="http://www.redis.net.cn/tutorial/3501.html" title="redis" target="_blank" rel="noopener">http://www.redis.net.cn/tutorial/3501.html</a></li>
+</ul>
+<h5 id="组织结构"><a href="#组织结构" class="headerlink" title="组织结构"></a>组织结构</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"> |——meeting/java </div><div class="line">|    |——bean </div><div class="line">|    |    |——vo --前端显示对象 </div><div class="line">|    |    |——entity --数据库表对象</div><div class="line">|    |    |——dto --数据传输对象</div><div class="line">|    |    |——API --接口对象 </div><div class="line">|    |——common </div><div class="line">|    |    |——bean --公共类</div><div class="line">|    |    |——util --工具类 </div><div class="line">|    |    |——cache --缓存 </div><div class="line">|    |——config --配置文件 </div><div class="line">|    |——controller --控制器 </div><div class="line">|    |——core --核心公用类 </div><div class="line">|    |——exception --统一异常处理 </div><div class="line">|    |——filter --过滤器 </div><div class="line">|    |——intercepter --日志记录 </div><div class="line">|    |——mapper --mapper接口 </div><div class="line">|    |——service --业务逻辑接口与实现类 </div><div class="line">|    |    |——API 处理接口业务 </div><div class="line">|    |    |——impl 接口实现类</div><div class="line">|    |    |——ScheduledTask 定时任务 </div><div class="line">|    |——meeting/resource</div><div class="line">|    |——mapper --mybatis xml文件 </div><div class="line">|    |——sql --数据库对应版本sql文件 </div><div class="line">|    |——static （前端页面） </div><div class="line">|    |    |——css </div><div class="line">|    |    |——html</div><div class="line">|    |    |——img </div><div class="line">|    |    |——js</div></pre></td></tr></table></figure>
+<h5 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h5><ul>
+<li>springboot</li>
+<li>mysql</li>
+<li>mybatis 持久层框架</li>
+<li>maven 项目构建工具</li>
+<li>redis+spring cache 缓存框架</li>
+<li>log4j 日志组件</li>
+<li>druid 连接池监控组件</li>
+<li>requirejs + jquery 前端框架</li>
+</ul>
+<hr>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h5 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h5><ul>
+<li>Jdk8</li>
+<li>Mysql5.7</li>
+<li>Redis</li>
+<li>Maven</li>
+</ul>
+<h5 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h5><ul>
+<li>centos7</li>
+<li>Redis</li>
+<li>Docker</li>
+</ul>
+<h5 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h5><ul>
+<li>MySql</li>
+<li>Git</li>
+<li>IntelliJ IDEA</li>
+<li>Navicat for MySQL</li>
+</ul>
+<hr>
+<h3 id="开发指南"><a href="#开发指南" class="headerlink" title="开发指南"></a>开发指南</h3><h5 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h5><ol>
+<li>手动打jar包，ftp上传至服务器；</li>
+<li>执行build脚本生成docker镜像并启动</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">自动化构建部署实现前，需要按照上步骤来处理。</div><div class="line">运行脚本文末附录会做相关解释。</div></pre></td></tr></table></figure>
+<p>#####缓存机制</p>
+<p>本项目采用spring cache与Redis进行整合, 可以使用spring cache缓存注解来缓存对象，同时用来缓存的内存的是使用redis的内存，<br>不会消耗JVM的内存，提升了性能，也便于后期的扩展。</p>
+<p>RedisConfig类配置相关配置，包括自动生成key值规则，缓存失效等等。</p>
+<p>默认缓存时效为一天。</p>
+<h6 id="缓存key生成说明"><a href="#缓存key生成说明" class="headerlink" title="缓存key生成说明"></a>缓存key生成说明</h6><p>每个缓存的 key 生成策略默认使用的是参数名+参数值<br>自动生成key策略是类名+方法名+参数值<br>支持SpringEL表达式</p>
+<h6 id="缓存注解"><a href="#缓存注解" class="headerlink" title="缓存注解"></a>缓存注解</h6><ul>
+<li>@Cacheable 能够根据方法的请求参数对其结果进行缓存</li>
+<li>@CachePut 能够根据方法的请求参数对其结果进行缓存，触发真实方法的调用</li>
+<li>@CacheEvict 能够根据一定的条件对缓存进行清空</li>
+</ul>
+<h6 id="缓存建议"><a href="#缓存建议" class="headerlink" title="缓存建议"></a>缓存建议</h6><p>针对于写操作频繁的场景，不推荐使用缓存</p>
+<h5 id="统一方法入口"><a href="#统一方法入口" class="headerlink" title="统一方法入口"></a>统一方法入口</h5><ul>
+<li>所有返回json数据或处理结果的方法都需要调用统一的方法入口(ActionResponse)来执行,<br>以确保返回格式统一,并将异常统一管理起来</li>
+<li>被调用的方法体只需处理正常逻辑,不考虑加try/catch,省去繁琐的编码,方便开发,<br>如有特殊逻辑可将异常抛出</li>
+<li>使用实例:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">public ResultForWeb getAllMeetingEquipment() &#123;</div><div class="line"> Func&lt;ResultForWeb&gt; func = () -&gt; meetingEquipmentService.getAllMeetingEquipment(); return ActionResponse(func); &#125;</div></pre></td></tr></table></figure>
+<h5 id="实体验证规范"><a href="#实体验证规范" class="headerlink" title="实体验证规范"></a>实体验证规范</h5><ul>
+<li>对应实体打上相应注解(@NotEmpty,@NotNull,@Rang等)</li>
+<li>使用统一的方法入口验证实体(ActionResponseGetString),验证成功才执行方法体</li>
+<li>使用实例:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">public ResultForWeb editMeetingManagement(@Valid MeetingManagement model, BindingResult bindingResult) &#123;</div><div class="line"> Func&lt;ResultForWeb&gt; func = () -&gt; meetingManagementService.editMeetingManagement(model); return  ActionResponseGetString(func, bindingResult.hasErrors()); &#125;</div></pre></td></tr></table></figure>
+<h5 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h5><h6 id="包命名"><a href="#包命名" class="headerlink" title="包命名"></a>包命名</h6><ul>
+<li>包命名采用全小写命名</li>
+<li>通过唯一域名+组件来命名(通常为 com.banggood.<em>*</em>)</li>
+</ul>
+<h6 id="类命名"><a href="#类命名" class="headerlink" title="类命名"></a>类命名</h6><ul>
+<li>类命名采用Pascal命名法</li>
+<li>大写字母开头，各个单词首字母大写</li>
+</ul>
+<h6 id="方法命名"><a href="#方法命名" class="headerlink" title="方法命名"></a>方法命名</h6><ul>
+<li>方法命名采用Camel命名法</li>
+<li>小写字母开头，各个单词首字母大写</li>
+<li>方法名的第一个单词应是动词</li>
+<li>属性的getter和setter方法尽量使用自动生成，或者使用lombok插件</li>
+</ul>
+<h6 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h6><ul>
+<li>采用Camel命名法</li>
+<li>小写字母开头，各个单词首字母大写</li>
+</ul>
+<h6 id="常量命名"><a href="#常量命名" class="headerlink" title="常量命名"></a>常量命名</h6><ul>
+<li>采用全大写命名法 </li>
+<li>所有字母均大写</li>
+</ul>
+<h6 id="静态资源文件命名"><a href="#静态资源文件命名" class="headerlink" title="静态资源文件命名"></a>静态资源文件命名</h6><ul>
+<li>采用全小写命名法</li>
+<li>所有的字母均小写，单词之间以下划线’_’分隔</li>
+</ul>
+<h5 id="注释要求"><a href="#注释要求" class="headerlink" title="注释要求"></a>注释要求</h5><p>团队成员都应该形成良好的写注释的习惯，方便以后阅读，以及为了后期生成可读性良好的Java Doc</p>
+<h6 id="类注释"><a href="#类注释" class="headerlink" title="类注释"></a>类注释</h6><p>在每个类前面必须加上类注释，注释模板如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/**</div><div class="line">*  Created by 开发者名 on 时间.</div><div class="line">*</div><div class="line">*  类描述信息</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h6 id="属性注释"><a href="#属性注释" class="headerlink" title="属性注释"></a>属性注释</h6><p>在每个属性前面必须加上属性注释，注释模板如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** 提示信息 */</div><div class="line">private String strMsg = null;</div></pre></td></tr></table></figure></p>
+<h6 id="方法注释"><a href="#方法注释" class="headerlink" title="方法注释"></a>方法注释</h6><p>在每个方法前面必须加上方法注释，注释模板如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* 类方法的详细使用说明</div><div class="line">*</div><div class="line">* @param  参数1 参数1的使用说明</div><div class="line">* @return 返回结果的说明</div><div class="line">* @author 作者 日期(2017/06/03)</div><div class="line">* @throws 异常类型.错误代码 注明从此类方法中抛出异常的说明</div><div class="line">*</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h6 id="方法内部注释"><a href="#方法内部注释" class="headerlink" title="方法内部注释"></a>方法内部注释</h6><p>在方法内部使用单行或者多行注释，该注释根据实际情况添加。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//背景颜色</div><div class="line">Color bgColor = Color.RED</div></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="git协作规范"><a href="#git协作规范" class="headerlink" title="git协作规范"></a>git协作规范</h5><h6 id="分支的使用"><a href="#分支的使用" class="headerlink" title="分支的使用"></a>分支的使用</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">存在分支master、develop、个人分支；</div><div class="line">首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</div><div class="line">那在哪干活呢？干活都在develop分支上，也就是说，develop分支是不稳定的，到某个时候，比如1.0版本发布时，再把develop分支合并到master上，在master分支发布1.0版本；</div><div class="line">每个人都在dev分支上干活，每个人都有自己的分支，所负责的功能开发完成后往develop分支上合并就可以了。</div></pre></td></tr></table></figure>
+<p>参考下图<br><img src="http://www.liaoxuefeng.com/files/attachments/001384909239390d355eb07d9d64305b6322aaf4edac1e3000/0" alt=""></p>
+<p>合并策略<br><code>--no-ff</code>：不使用fast-forward方式合并，保留分支的commit历史；<br><code>--squash</code>：使用squash方式合并，把多次分支commit历史压缩为一次。主要在master分支和develop分支使用</p>
+<h6 id="提交信息格式要求"><a href="#提交信息格式要求" class="headerlink" title="提交信息格式要求"></a>提交信息格式要求</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;// 空一行&lt;body&gt;</div></pre></td></tr></table></figure>
+<p>type<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">*   Feat：新功能（feature）</div><div class="line">*   Fix：修补bug</div><div class="line">*   Update：功能上改动</div><div class="line">*   Refactor：重构（即不是新增功能，也不是修改bug的代码变动）</div><div class="line">*   Merge：增加测试</div></pre></td></tr></table></figure></p>
+<p>subject<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">commit 目的的简短描述，不超过50个字符。</div><div class="line">*   以动词开头</div><div class="line">*   结尾不加句号（`.`）</div></pre></td></tr></table></figure></p>
+<p>body<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">body部分是对本次 commit 的详细描述，可以分成多行。</div><div class="line">描述参照：其是什么及为什么这么做，不用怎么做。</div></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="框架规范约定"><a href="#框架规范约定" class="headerlink" title="框架规范约定"></a>框架规范约定</h5><p>各类放置约定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">service类，需要在叫名`service`的包下，接口类以`Service`结尾，实现类以`ServiceImpl`结尾，如`UserServiceImpl`</div><div class="line"></div><div class="line">controller类，需要在以`controller`结尾的包下，类名以Controller结尾，如`UserController.java`</div><div class="line"></div><div class="line">mapper.xml，需要resource路径下，并以`Mapper.xml`结尾，如`UserMapper.xml`</div><div class="line"></div><div class="line">mapper接口，需要在名叫`mapper`的包下，并以`Mapper`结尾，如`UserMapper.java`</div><div class="line"></div><div class="line">实体类，系统业务相关非公共在`bean`包下，公用类在`common`包下；</div><div class="line"></div><div class="line">类名：首字母大写驼峰规则；方法名：首字母小写驼峰规则；常量：全大写；变量：首字母小写驼峰规则，尽量非缩写</div><div class="line"></div><div class="line">配置文件放到`src/main/resources`目录下</div><div class="line"></div><div class="line">静态资源文件放到`/resources`目录下</div><div class="line"></div><div class="line">`RequestMapping`要指定method</div></pre></td></tr></table></figure>
+<p>Service/Mapper方法命名约定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">获取单个对象的方法用get做前缀</div><div class="line"></div><div class="line">获取多个对象的方法用list做前缀</div><div class="line"></div><div class="line">获取统计值的方法用count做前缀</div><div class="line"></div><div class="line">插入的方法用save（推荐）或insert做前缀</div><div class="line"></div><div class="line">删除的方法用remove（推荐）或delete做前缀</div><div class="line"></div><div class="line">修改的方法用update做前缀</div></pre></td></tr></table></figure>
+<hr>
+<p></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/06/git使用手册/" rel="next" title="git使用手册">
+                <i class="fa fa-chevron-left"></i> git使用手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/06/swagger-ui注解说明/" rel="prev" title="swagger-ui注解说明">
+                swagger-ui注解说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/26055506?s=400&u=1f62420420bdf14c7fa784348bc931bc06a0244d&v=4"
+               alt="Vincent Wei" />
+          <p class="site-author-name" itemprop="name">Vincent Wei</p>
+           
+              <p class="site-description motion-element" itemprop="description">让记录成为习惯</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目介绍"><span class="nav-number">1.</span> <span class="nav-text">项目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#相关链接"><span class="nav-number">1.0.1.</span> <span class="nav-text">相关链接</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组织结构"><span class="nav-number">1.0.2.</span> <span class="nav-text">组织结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#技术选型"><span class="nav-number">1.0.3.</span> <span class="nav-text">技术选型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开发环境"><span class="nav-number">2.0.1.</span> <span class="nav-text">开发环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部署环境"><span class="nav-number">2.0.2.</span> <span class="nav-text">部署环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#开发工具"><span class="nav-number">2.0.3.</span> <span class="nav-text">开发工具</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发指南"><span class="nav-number">3.</span> <span class="nav-text">开发指南</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#部署方式"><span class="nav-number">3.0.1.</span> <span class="nav-text">部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#缓存key生成说明"><span class="nav-number">3.0.1.1.</span> <span class="nav-text">缓存key生成说明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#缓存注解"><span class="nav-number">3.0.1.2.</span> <span class="nav-text">缓存注解</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#缓存建议"><span class="nav-number">3.0.1.3.</span> <span class="nav-text">缓存建议</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#统一方法入口"><span class="nav-number">3.0.2.</span> <span class="nav-text">统一方法入口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实体验证规范"><span class="nav-number">3.0.3.</span> <span class="nav-text">实体验证规范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#命名规范"><span class="nav-number">3.0.4.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#包命名"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">包命名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#类命名"><span class="nav-number">3.0.4.2.</span> <span class="nav-text">类命名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#方法命名"><span class="nav-number">3.0.4.3.</span> <span class="nav-text">方法命名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#变量命名"><span class="nav-number">3.0.4.4.</span> <span class="nav-text">变量命名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#常量命名"><span class="nav-number">3.0.4.5.</span> <span class="nav-text">常量命名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#静态资源文件命名"><span class="nav-number">3.0.4.6.</span> <span class="nav-text">静态资源文件命名</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释要求"><span class="nav-number">3.0.5.</span> <span class="nav-text">注释要求</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#类注释"><span class="nav-number">3.0.5.1.</span> <span class="nav-text">类注释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#属性注释"><span class="nav-number">3.0.5.2.</span> <span class="nav-text">属性注释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#方法注释"><span class="nav-number">3.0.5.3.</span> <span class="nav-text">方法注释</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#方法内部注释"><span class="nav-number">3.0.5.4.</span> <span class="nav-text">方法内部注释</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git协作规范"><span class="nav-number">3.0.6.</span> <span class="nav-text">git协作规范</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分支的使用"><span class="nav-number">3.0.6.1.</span> <span class="nav-text">分支的使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#提交信息格式要求"><span class="nav-number">3.0.6.2.</span> <span class="nav-text">提交信息格式要求</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#框架规范约定"><span class="nav-number">3.0.7.</span> <span class="nav-text">框架规范约定</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Wei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2140909"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
